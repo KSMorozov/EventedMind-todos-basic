@@ -1,0 +1,27 @@
+<head>
+  <title>todos</title>
+</head>
+
+<body>
+  <div class="containers">
+    <!-- handlebars -->
+    {{> todosPanel}}
+  </div>
+</body>
+
+<template name="todosPanel">
+  Hello World.
+  <div class="todos-panel">
+    <ul class="todos-lists">
+      {{#each items}}
+        <li class="todo-item">
+          {{> todoItem}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="todoItem">
+  {{this.subject}}
+</template>
