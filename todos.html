@@ -10,18 +10,38 @@
 </body>
 
 <template name="todosPanel">
-  Hello World.
   <div class="todos-panel">
+    {{> createTodoItem}}
     <ul class="todos-lists">
       {{#each items}}
-        <li class="todo-item">
+        <li class="todo-item {{isDoneClass}}">
           {{> todoItem}}
         </li>
       {{/each}}
     </ul>
+
+    {{> todosCount}}
   </div>
 </template>
 
 <template name="todoItem">
-  {{this.subject}}
+  <div class="done">
+    <input type="checkbox" name="is_done" {{isDoneChecked}} />
+  </div>
+
+  <div class="subject">
+    {{this.subject}}
+  </div>
+</template>
+
+<template name="createTodoItem">
+  <form class="create-todo">
+    <input type="text" placeholder="Create new Todo..." />
+  </form>
+</template>
+
+<template name="todosCount">
+  <div class="todos-count">
+    {{completedCount}} / {{totalCount}} Todos Completed.
+  </div>
 </template>
